@@ -385,3 +385,70 @@ form button {
         margin-bottom: 60px;
     }
 }
+
+/* --- HAMBURGER MENU & MOBILE NAVIGATION --- */
+
+/* Hide hamburger by default on desktop */
+.hamburger {
+    display: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Make sure it's above the nav overlay */
+}
+
+.hamburger-bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: #FFF;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* --- Styles applied ONLY on mobile screens --- */
+@media (max-width: 768px) {
+    
+    /* 1. Hide the desktop navigation and the spacer */
+    .main-nav {
+        display: none; /* Hide the nav links container */
+    }
+    .header-right-spacer {
+        display: none; /* Hide the spacer div */
+    }
+    
+    /* 2. Show the hamburger button */
+    .hamburger {
+        display: block; /* Show the button */
+    }
+    
+    /* 3. Style the mobile navigation when it's active */
+    .main-nav.mobile-active {
+        display: flex; /* Re-show the nav */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        /* Make it a full-screen overlay */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--secondary-bg); /* Use your dark background color */
+    }
+
+    /* Style the links within the mobile overlay */
+    .main-nav.mobile-active ul {
+        flex-direction: column;
+        gap: 40px; /* Increase space between items */
+        text-align: center;
+    }
+    
+    .main-nav.mobile-active a {
+        font-size: 1.5rem; /* Make links much bigger and easier to tap */
+        text-shadow: none; /* Optional: remove shadow if not needed on solid bg */
+    }
+}

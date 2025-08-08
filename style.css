@@ -1,0 +1,387 @@
+/* --- GLOBAL STYLES & VARIABLES --- */
+:root {
+    /* --- New Color Palette Inspired by Your Logo --- */
+    --primary-bg: #FFFFFF;                  /* White for light sections */
+    --secondary-bg: #0d0d0f;                /* A deep, near-black for dark sections */
+    --primary-text: #333333;                /* Dark Gray for readability on light backgrounds */
+    --secondary-text: #EAEAEA;              /* Light Gray for readability on dark backgrounds */
+    --accent-color-cyan: #33d9ff;            /* The vibrant neon blue/cyan from your logo */
+    --accent-color-magenta: #d444f2;         /* The vibrant neon magenta/purple from your logo */
+    --font-main: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    color: var(--primary-text);
+    background-color: var(--primary-bg);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+    margin-top: 0;
+    line-height: 1.2;
+}
+
+/* --- HEADLINE STYLING --- */
+h1 { 
+    font-size: 3.8rem; 
+    font-weight: 700;
+    /* Applying the magenta color and a neon glow effect */
+    color: var(--accent-color-magenta);
+    text-shadow: 
+        0 0 5px rgba(212, 68, 242, 0.8),
+        0 0 10px rgba(212, 68, 242, 0.6),
+        0 0 20px rgba(212, 68, 242, 0.4);
+}
+h2 { font-size: 2.5rem; text-align: center; margin-bottom: 60px; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.2rem; }
+
+section {
+    padding: 100px 0;
+}
+
+.dark-section {
+    background-color: var(--secondary-bg);
+    color: var(--secondary-text);
+}
+.dark-section h2 {
+    color: var(--secondary-text); /* Ensure h2 is visible on dark backgrounds */
+}
+
+/* --- NEON CTA BUTTON --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color-cyan);
+    color: #000; /* Black text on the bright button for high contrast */
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700; /* Bolder text */
+    transition: all 0.3s ease;
+    border: 2px solid var(--accent-color-cyan);
+    box-shadow: 0 0 10px rgba(51, 217, 255, 0.5); /* Neon glow for the button */
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--accent-color-cyan);
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(51, 217, 255, 0.8); /* Intensify glow on hover */
+}
+
+
+/* --- HEADER & LOGO (NEW NON-STICKY STYLE) --- */
+.main-header {
+    /* --- The header is now positioned OVER the hero section --- */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1px 0; /* Generous padding for a larger logo */
+    
+    /* --- NEW: Glossy / Frosted Glass Effect --- */
+    background-color: rgba(10, 10, 10, 0.25); /* A subtle, dark, semi-transparent base */
+    backdrop-filter: blur(5px); /* This blurs the image content BEHIND the header */
+    -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* A faint line to define the bottom edge */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* A soft shadow to add depth */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Give the logo's container a specific width for the left column */
+.logo-link {
+    width: 250px; /* Wider to accommodate a larger logo */
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    /* --- LARGER LOGO --- */
+    height: 100px; /* This is where you control the logo's size */
+    width: auto;
+}
+
+/* This is the rule for our invisible right-hand column */
+.header-right-spacer {
+    width: 250px; /* Must match the width of .logo-link */
+}
+
+
+/* --- Navigation Menu Styling --- */
+.main-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #FFFFFF; 
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+    /* Add a subtle shadow to make the white text pop against the image */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.main-nav a:hover {
+    color: var(--accent-color-cyan);
+}
+
+.main-nav a::after {
+    display: none;
+}
+
+
+/* --- HERO SECTION --- */
+
+#hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFF;
+    /* This padding pushes the hero content down from under the new, narrower header */
+    padding-top: 120px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box; /* <-- ADD THIS LINE */
+}
+
+#hero .subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 20px auto 30px;
+    color: var(--secondary-text);
+}
+
+/* --- OUR MODEL SECTION --- */
+.split-layout {
+    display: flex;
+    gap: 40px;
+    text-align: center;
+}
+.split-content {
+    flex: 1;
+}
+
+/* --- NETWORK SECTION --- */
+.subsection-title {
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+.network-item {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 80px;
+}
+
+.network-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.network-image {
+    flex: 1;
+}
+
+.network-image img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1); /* Subtle border for images on dark bg */
+}
+
+.network-content {
+    flex: 1;
+}
+
+.network-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.network-content li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.network-content li::before {
+    content: '✓';
+    color: var(--accent-color-cyan);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    /* --- Adds the neon glow effect to the checkmark --- */
+    text-shadow: 
+        0 0 4px #fff, /* A sharp white inner glow to make the color pop */
+        0 0 8px var(--accent-color-cyan),
+        0 0 12px var(--accent-color-cyan);
+}
+
+.development-grid {
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.development-grid + .network-item {
+    margin-top: 80px;
+}
+
+.concept-card {
+    background: #1a1a1c; /* Slightly lighter than main dark bg */
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.concept-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color-cyan);
+}
+
+.concept-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content span {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- WHY US / ADVANTAGE SECTION --- */
+.advantage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+/* --- Replace with This --- */
+
+.advantage-card {
+    background: #FFFFFF; /* A clean white background */
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    /* A thicker, vibrant border is key on a light background */
+    border: 2px solid var(--accent-color-magenta); /* <-- CHANGED to magenta variable */
+    /* The shadow is now more subtle and colored to give depth */
+    box-shadow: 0 5px 15px rgba(212, 68, 242, 0.2); /* <-- CHANGED to magenta RGB color */
+    transition: all 0.3s ease;
+}
+
+.advantage-card:hover {
+    transform: translateY(-5px);
+    /* On hover, we deepen the shadow's color for more pop */
+    box-shadow: 0 8px 25px rgba(212, 68, 242, 0.3); /* <-- CHANGED to magenta RGB color */
+}
+
+/* --- CONTACT SECTION --- */
+.contact-layout {
+    max-width: 700px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+form input, form textarea {
+    padding: 15px;
+    border: 1px solid #444;
+    background-color: #1a1a1c;
+    color: var(--secondary-text);
+    border-radius: 5px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color-cyan);
+    box-shadow: 0 0 10px rgba(51, 217, 255, 0.5);
+}
+
+form button {
+    align-self: center;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- FOOTER --- */
+.main-footer {
+    background-color: var(--secondary-bg);
+    color: #888;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE STYLES for smaller screens --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2rem; }
+
+    section { padding: 60px 0; }
+
+    .split-layout, .network-item, .network-item.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .network-item {
+        margin-bottom: 60px;
+    }
+}

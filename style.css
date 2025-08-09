@@ -384,6 +384,13 @@ form button {
     .network-item {
         margin-bottom: 60px;
     }
+
+    #hero {
+        /* This shifts the image framing.
+           0% is the far left. 50% is the center.
+           Adjust this percentage to get the perfect framing! */
+        background-position: 15% center;
+    }
 }
 
 /* --- HAMBURGER MENU & MOBILE NAVIGATION --- */
